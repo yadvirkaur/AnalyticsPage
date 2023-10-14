@@ -37,7 +37,7 @@ const LayoutPage = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 770) {
         setCollapsed(true);
       } else {
         setCollapsed(false);
@@ -53,7 +53,7 @@ const LayoutPage = () => {
   }, []);
 
   const handleMenuItemClick = () => {
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 770) {
       setCollapsed(true);
     }
   };
@@ -89,7 +89,7 @@ const LayoutPage = () => {
             </Link>
           </div>
 
-          <div className=" headerItem2 ml-12 mt-6">
+          <div className="hidden md:block headerItem2 ml-12 mt-6">
             <HeaderTag />
           </div>
 

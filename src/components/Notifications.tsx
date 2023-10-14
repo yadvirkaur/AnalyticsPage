@@ -21,7 +21,7 @@ const Notifications = () => {
   const [value, onChange] = useState<Value>(new Date());
 
   return (
-    <div className="  flex lg:flex-col  justify-evenly gap-8 p-4 ">
+    <div className="  flex-col lg:flex-col md:flex-row gap-8 p-4 ">
       <div className=" w-min">
         <div className="  text-purple text-xs mb-2">Premium Access</div>
         <div className="  text-lg font-semibold flex-1">

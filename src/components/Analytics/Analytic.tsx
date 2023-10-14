@@ -22,7 +22,7 @@ const Analytic = () => {
   );
 
   return (
-    <div className=" flex lg:flex-nowrap flex-wrap justify-evenly w-auto p-4 gap-12  border rounded-xl border-gray-400 border-opacity-30">
+    <div className=" flex lg:flex-nowrap flex-wrap justify-evenly w-auto py-4 px-2 mx-2 md:p-4  gap-12  border rounded-xl border-gray-400 border-opacity-30">
       <Space direction="vertical">
         <div className="text-base font-bold">Total Sales & Cost</div>
         <div className="text-xs text-grey font-medium">Last 60 days</div>

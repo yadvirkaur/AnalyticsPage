@@ -5,7 +5,7 @@ import sales from '../assets/Sales.png';
 
 const Banner = () => {
   return (
-    <div className=" flex flex-wrap  p-4 px-6 mb-7 gap-6 justify-evenly   border rounded-xl bg-purple  text-xs text-lightPurple  ">
+    <div className=" flex flex-wrap  p-4 px-2 mx-2 md:px-6 mb-7 gap-6 justify-evenly   border rounded-xl bg-purple  text-xs text-lightPurple  ">
       <Space direction="horizontal">
         <img
           src={revenue}

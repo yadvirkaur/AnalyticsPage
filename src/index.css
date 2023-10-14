@@ -4,30 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (max-width: 600px) {
-  .headerItem1 .headerItem3 {
-    flex-wrap: wrap;
-  }
-  .headerItem2 {
-    order: 1; /* Move the 2nd item to the next row */
-    width: 100%;
-  }
-  .mainContent {
-    margin-top: 4rem;
-  }
-  .headerSection {
-    padding-block: 12px;
-    margin-block: 0;
-  }
-
-  .headerItem2 {
-    padding-block: 0;
-    margin: 0;
-    margin-top: 8px;
-    z-index: 9;
-  }
-}
-
 /* ant clasess for: where(.css-dev-only-do-not-override ) */
 
 main.ant-layout-content {

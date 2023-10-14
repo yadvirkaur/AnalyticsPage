@@ -78,23 +78,17 @@ const Poj: React.FC = () => {
 
       render: (text, record) => ({
         children: (
-          <div
-            style={{
-              paddingBlock: '14px',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
+          <div className=" md:flex items-center py-[14px] ">
             <img
               src={record.image}
               className="bg-purpleGray rounded-full w-9 p-[6px]"
               alt="customer image"
             />
-            <div style={{ marginLeft: '8px' }}>
-              <div style={{ fontSize: '12px', fontWeight: '600' }}>{text}</div>
-              <div style={{ fontSize: '10px', color: '#bababa' }}>
-                {record.email}
+            <div className="ml-[8px]">
+              <div className="flex flex-wrap text-[12px] font-medium">
+                {text}
               </div>
+              <div className="text-[10px] text-[#bababa]">{record.email}</div>
             </div>
           </div>
         ),
@@ -213,7 +207,7 @@ const Poj: React.FC = () => {
 
   return (
     <>
-      <div className="px-4 mb-10 mt-[20px]">
+      <div className="md:px-4 px-2  mb-10 mt-[20px]">
         <Space className="flex justify-between mb-[14px] ">
           <div className="text-lg font-semibold  ">Transaction History</div>
 
