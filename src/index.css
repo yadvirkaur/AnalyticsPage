@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width: 600px) {
+  .headerItem1 .headerItem3 {
+    flex-wrap: wrap;
+  }
+  .headerItem2 {
+    order: 1; /* Move the 2nd item to the next row */
+    width: 100%;
+  }
+  .mainContent {
+    margin-top: 4rem;
+  }
+  .headerSection {
+    padding-block: 12px;
+    margin-block: 0;
+  }
+
+  .headerItem2 {
+    padding-block: 0;
+    margin: 0;
+    margin-top: 8px;
+    z-index: 9;
+  }
+}
+
+/* ant clasess for: where(.css-dev-only-do-not-override ) */
+
+main.ant-layout-content {
+  font-family: 'Inter', sans-serif;
+}
+.ant-menu-light .ant-menu-item-selected {
+  background-color: #6e62e5;
+  color: white;
+}
+
+.ant-menu-light.ant-menu-root.ant-menu-inline {
+  border-inline-end: none;
+  border-inline-start: none;
+}
+
+.ant-layout-header {
+  line-height: normal;
+}
+
+/* .ant-picker-calendar
+  .ant-picker-cell-in-view.ant-picker-cell-selected
+  .ant-picker-cell-inner {
+  background-color: #6e62e5;
+  border-radius: 100%;
+}
+
+.ant-picker-calendar .ant-picker-content > th {
+  color: '#6e62e5';
+} */
+
+.react-calendar {
+  background-color: #fff;
+  color: #222;
+  border-radius: 8px;
+  line-height: 0;
+  border: none;
+}
+
+.react-calendar__navigation button {
+  font-size: 16px;
+  margin-top: 6px;
+  border-radius: 100px;
+}
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: white;
+}
+
+.react-calendar__navigation {
+  line-height: 20px;
+}
+
+abbr[title] {
+  text-decoration: none;
+  color: #b3b4b5;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: white;
+  color: #6f48eb;
+  border-radius: 100px;
+}
+
+.react-calendar__tile--active {
+  background: #6f48eb;
+  border-radius: 100px;
+  font-weight: bold;
+  color: white;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #6f48eb;
+  color: white;
+}
+.react-calendar__tile {
+  padding: 6px;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+}
