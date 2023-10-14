@@ -139,7 +139,9 @@ const Poj: React.FC = () => {
       dataIndex: 'people',
       key: 'people',
 
-      render: (people) => (
+      render: (
+        people: { src: string; backgroundColor: string; border: string }[]
+      ) => (
         <Avatar.Group
           maxCount={people.length > 3 ? 2 : undefined}
           size="small"
