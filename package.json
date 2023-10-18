@@ -12,8 +12,10 @@
   "dependencies": {
     "@ant-design/plots": "^1.2.5",
     "antd": "^5.10.0",
+    "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-calendar": "^4.6.0",
+    "react-day-picker": "^8.9.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
     "recharts": "^2.8.0"

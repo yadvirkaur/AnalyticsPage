@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import {
   Select,
   ConfigProvider,
-  Button,
   Space,
   Table,
-  Menu,
   Dropdown,
+  MenuProps,
   Badge,
   Avatar,
 } from 'antd';
@@ -48,27 +47,24 @@ const Poj: React.FC = () => {
 
   const data: DataType[] = transactionData; // Destructure the data
 
-  const statusMenu = (
-    <Menu onClick={({ key }) => setStatusFilter(key)}>
-      <Menu.Item key="Success">Success</Menu.Item>
-      <Menu.Item key="Pending">Pending</Menu.Item>
-      <Menu.Item key="">Clear Filter</Menu.Item>
-    </Menu>
-  );
-
   // Create a unique list of recipients
   const uniqueRecipients = Array.from(
     new Set(data.map((item) => item.customer))
   );
 
-  const recipientMenu = (
-    <Menu onClick={({ key }) => setSelectedRecipient(key)}>
-      {uniqueRecipients.map((recipient) => (
-        <Menu.Item key={recipient}>{recipient}</Menu.Item>
-      ))}
-      <Menu.Item key="">All Recipients</Menu.Item>
-    </Menu>
-  );
+  const recipientMenu: MenuProps['items'] = [
+    ...uniqueRecipients.map((recipient) => ({
+      label: recipient,
+      key: recipient,
+    })),
+    { label: 'Clear Filter', key: '' },
+  ];
+
+  const statusMenu: MenuProps['items'] = [
+    { label: 'Success', key: 'Success' },
+    { label: 'Pending', key: 'Pending' },
+    { label: 'Clear Filter', key: '' },
+  ];
 
   const columns: ColumnsType<DataType> = [
     {
@@ -194,15 +190,12 @@ const Poj: React.FC = () => {
       : filteredData;
 
   const customButtonStyles = {
-    border: 'none',
     borderRadius: '6px',
     background: '#f3f4f8',
-    display: 'flex',
-    alignItems: 'center',
     fontWeight: '500',
     fontSize: '12px',
     padding: '16px',
-    paddingBlock: '14px',
+    paddingBlock: '6px',
   };
 
   return (
@@ -218,14 +211,15 @@ const Poj: React.FC = () => {
               defaultValue="Nov"
               bordered={false}
               onChange={(value) => setSelectedMonth(value)}
-            >
-              <Select.Option value=" ">Month</Select.Option>
-              <Select.Option value="Aug">Aug</Select.Option>
-              <Select.Option value="Sept">Sept</Select.Option>
-              <Select.Option value="Oct">Oct</Select.Option>
-              <Select.Option value="Nov">Nov</Select.Option>
-              <Select.Option value="Dec">Dec</Select.Option>
-            </Select>
+              options={[
+                { value: '', label: 'Month' },
+                { value: 'Aug', label: 'Aug' },
+                { value: 'Sept', label: 'Sept' },
+                { value: 'Oct', label: 'Oct' },
+                { value: 'Nov', label: 'Nov' },
+                { value: 'Dec', label: 'Dec' },
+              ]}
+            />
           </div>
         </Space>
 
@@ -245,29 +239,41 @@ const Poj: React.FC = () => {
             }}
           >
             <Space style={{ marginBottom: '18px' }}>
-              <Dropdown overlay={recipientMenu}>
-                <Button size="small" style={customButtonStyles}>
+              <Dropdown
+                menu={{
+                  onClick: ({ key }) => setSelectedRecipient(key),
+                  items: recipientMenu,
+                }}
+                trigger={['click']}
+              >
+                <span style={customButtonStyles}>
                   Recipient {selectedRecipient ? `: ${selectedRecipient}` : ''}
-                  <DownOutlined />
-                </Button>
+                  <DownOutlined className="pl-2" />
+                </span>
               </Dropdown>
 
-              <Button
-                size="small"
-                onClick={handleSortChange}
-                style={customButtonStyles}
-              >
+              <button onClick={handleSortChange} style={customButtonStyles}>
                 Amount
-                {sortOrder === 'asc' && <UpOutlined className="text-xxs" />}
-                {sortOrder === 'desc' && <DownOutlined className="text-xxs" />}
-                {!sortOrder && <DownOutlined className="text-xxs" />}
-              </Button>
+                {sortOrder === 'asc' && (
+                  <UpOutlined className="text-xxs pl-2" />
+                )}
+                {sortOrder === 'desc' && (
+                  <DownOutlined className="text-xxs pl-2" />
+                )}
+                {!sortOrder && <DownOutlined className="text-xxs pl-2" />}
+              </button>
 
-              <Dropdown overlay={statusMenu}>
-                <Button size="small" style={customButtonStyles}>
+              <Dropdown
+                menu={{
+                  onClick: ({ key }) => setStatusFilter(key),
+                  items: statusMenu,
+                }}
+                trigger={['click']}
+              >
+                <span style={customButtonStyles}>
                   Status {statusFilter ? `: ${statusFilter}` : ''}{' '}
-                  <DownOutlined />
-                </Button>
+                  <DownOutlined className="pl-2" />
+                </span>
               </Dropdown>
             </Space>
 

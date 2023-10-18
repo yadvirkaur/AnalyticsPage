@@ -110,7 +110,7 @@ export const transactionData = [
     status: 'Pending',
     date: 'Oct 02, 2022',
     invoice: '$120,00',
-    amount: 11000,
+    amount: 12000,
     people: [
       { src: user4, backgroundColor: '#ffc6b7', border: '2px solid white' },
       { src: user5, backgroundColor: '#f7c236', border: '2px solid white' },
