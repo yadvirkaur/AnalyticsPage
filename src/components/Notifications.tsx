@@ -7,21 +7,18 @@ import {
 } from '@ant-design/icons';
 import { Divider, Space } from 'antd';
 
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
+
 import laptopImg from '../assets/laptop.webp';
 import booksImg from '../assets/books.webp';
 import bookImg from '../assets/book.webp';
 
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
-
 const Notifications = () => {
-  const [value, onChange] = useState<Value>(new Date());
+  const [selected, setSelected] = useState<Date>();
 
   return (
-    <div className="  flex-col lg:flex-col md:flex-row gap-8 p-4 ">
+    <div className="  p-4 ">
       <div className=" w-min">
         <div className="  text-purple text-xs mb-2">Premium Access</div>
         <div className="  text-lg font-semibold flex-1">
@@ -34,8 +31,15 @@ const Notifications = () => {
           Upgrade Now <ArrowRightOutlined className="ml-auto" />
         </div>
         <Divider />
-        <div className=" max-w-[220px]  text-xs mb-6 ">
-          <Calendar onChange={onChange} value={value} />
+
+        <div className="  text-xs  mb-6  w-[220px]">
+          <DayPicker
+            className="text-xs "
+            mode="single"
+            selected={selected}
+            onSelect={setSelected}
+            weekStartsOn={1}
+          />
         </div>
       </div>
       <div>
